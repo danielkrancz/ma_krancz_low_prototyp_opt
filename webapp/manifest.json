@@ -7,8 +7,7 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
+    "title": "MA Krancz - Opt. Low Code",
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
@@ -23,23 +22,29 @@
           "localUri": "localService/mainService/DMO_UI_TRAVEL_PROC_M_O2_VAN.xml"
         }
       },
-      "annotation": {
-        "type": "ODataAnnotation",
-        "uri": "annotations/annotation.xml",
-        "settings": {
-          "localUri": "annotations/annotation.xml"
-        }
-      },
       "mainService": {
         "uri": "/sap/opu/odata/dmo/UI_TRAVEL_PROC_M_O2/",
         "type": "OData",
         "settings": {
           "annotations": [
-            "DMO_UI_TRAVEL_PROC_M_O2_VAN",
-            "annotation"
+            "DMO_UI_TRAVEL_PROC_M_O2_VAN"
           ],
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "KranczLowOpt-display": {
+          "semanticObject": "KranczLowOpt",
+          "action": "display",
+          "title": "Opt. Low-Code-Prototyp",
+          "subTitle": "für Performancemessung",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -65,11 +70,7 @@
     "dependencies": {
       "minUI5Version": "1.120.14",
       "libs": {
-        "sap.m": {},
         "sap.ui.core": {},
-        "sap.ushell": {},
-        "sap.f": {},
-        "sap.ui.comp": {},
         "sap.ui.generic.app": {},
         "sap.suite.ui.generic.template": {}
       }
@@ -79,12 +80,6 @@
       "cozy": true
     },
     "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "at.hb.makrancz.lowcodeappopt.i18n.i18n"
-        }
-      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -96,19 +91,7 @@
             "sap-value-list": "none"
           }
         }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
       }
-    },
-    "resources": {
-      "css": []
-    },
-    "routing": {
-      "config": {},
-      "routes": [],
-      "targets": {}
     }
   },
   "sap.ui.generic.app": {
